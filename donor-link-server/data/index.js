@@ -1,0 +1,26 @@
+export const dataUser = [
+    {
+      _id: "63701cc1f03239c72c00017f",
+      name: "Konstantine",
+      email: "kranstead0@narod.ru",
+      password: "omMDCh",
+      city: "Nurabelen",
+      state: null,
+      country: "ID",
+      occupation: "Computer Systems Analyst I",
+      phoneNumber: "8346315874",
+      role: "donor",
+    },
+    {
+      _id: "63701cc1f03239c72c000180",
+      name: "Marilyn",
+      email: "mdonlon1@hostgator.com",
+      password: "XRYBnKAfm",
+      city: "Zhanghekou",
+      state: null,
+      country: "CN",
+      occupation: "Food Chemist",
+      phoneNumber: "9981906117",
+      role: "recipient",
+    },
+]
