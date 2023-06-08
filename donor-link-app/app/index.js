@@ -1,23 +1,29 @@
-import { Stack, useRouter } from 'expo-router';
-import {View, Text, SafeAreaView, Image} from 'react-native';
-import {ReactComponent as DonorLinkLogo} from '../assets/donor-link-logo.svg'
+import { Link, Stack, useNavigation, useRouter } from 'expo-router';
+import {View, Text, SafeAreaView, Image, Button, TouchableOpacity} from 'react-native';
+import DonorLinkLogo from '../components/DonoLinkLogo';
+import OnboardingLogo from '../components/OnboardingLogo';
 
 const Home = () => {
-    const router = useRouter();
-
+    
     return (
         <SafeAreaView style={{flex: 1, backgroundColor: '#EEEEEE'}}>
             <Stack.Screen 
                 options={{
-                    headerStyle: {backgroundColor: '#EEEEEE'},
+                    headerStyle: {backgroundColor: '#EEEEEE', height: 0},
                     headerShadowVisible: false,
                     headerTitle:""
                 }}
             />
-            <View style={{display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'space-between', height: '100%'}}>
-                <View>Donor Link Logo</View>
-                <View>Welcome with info msg</View>
-                <View>Continue button</View>
+            <View style={{display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'space-around', height: '100%'}}>
+                <DonorLinkLogo />
+                <OnboardingLogo />
+                <TouchableOpacity style={{width: 360, height: 40, backgroundColor: '#87A7AE', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                    <Link href='/signIn'>
+                        <Text style={{fontSize: 12, color: '#FFF', fontWeight: 700}}>
+                            Continue
+                        </Text>
+                    </Link>
+                </TouchableOpacity>
             </View>
         </SafeAreaView>
     )
