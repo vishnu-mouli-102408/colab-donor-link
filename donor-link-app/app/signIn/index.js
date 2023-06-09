@@ -10,7 +10,7 @@ const SignIn = () => {
         <SafeAreaView style={{ flex: 1, backgroundColor: '#EEEEEE' }}>
             <Stack.Screen
                 options={{
-                    headerStyle: { backgroundColor: '#EEEEEE', height: 0 },
+                    headerStyle: { backgroundColor: '#EEEEEE', height: 0, display: 'none' },
                     headerShadowVisible: false,
                     headerTitle: ""
                 }}

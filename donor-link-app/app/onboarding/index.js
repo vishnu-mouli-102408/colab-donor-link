@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native'
 import CustomButton from '../../components/CustomButton'
-import { Link, Stack, useNavigation } from 'expo-router'
+import { Link, Stack, useNavigation, useRouter } from 'expo-router'
+import TextComponent from '../../components/TextComponent'
+import CustomActionButton from '../../components/CustomActionButton'
 
 const Onboarding = () => {
     const [userType, setUserType] = useState('')
-    const navigation = useNavigation();
+    const navigation = useRouter();
 
     const handleDonorPress = () => {
         setUserType('DONOR')
@@ -17,7 +19,9 @@ const Onboarding = () => {
 
     const handleVerify = () => {
         if(userType === 'DONOR') {
-            navigation('/signIn')
+            navigation.push('/registerDonor')
+        } else {
+            navigation.push('/registerRecipient')
         }
     }
 
@@ -31,17 +35,13 @@ const Onboarding = () => {
                 }}
             />
             <View style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-around', alignItems: 'center', height: '100%'}}>
-                <View style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16}}>
-                    <Text style={{marginBottom: 40, fontSize: 18, fontWeight: 600, textAlign: 'center'}}>Are you a potential donor or are you a recipient?</Text>
+                <TextComponent text="Are you a potential donor or are you a recipient?" />
+                <View style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16, marginTop: 40}}>
                     <CustomButton title='Donor' handlePress={handleDonorPress} />
                     <CustomButton title='Recipient' handlePress={handleRecipientPress} />
                 </View>
                 <View>
-                    <TouchableOpacity onPress={handleVerify} style={{ width: 360, height: 40, backgroundColor: '#87A7AE', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <Text style={{ fontSize: 12, color: '#FFF', fontWeight: 700 }}>
-                            Verify
-                        </Text>
-                    </TouchableOpacity>
+                    <CustomActionButton handlePress={handleVerify} text="Verify" />
                 </View>
             </View>
         </SafeAreaView>
